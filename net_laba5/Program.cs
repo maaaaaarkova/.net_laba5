@@ -8,13 +8,13 @@ namespace net_laba5
     {
         static void Main()
         {
-            BuyingObserver observer1 = new BuyingObserver()
+            Observer observer1 = new BuyingObserver()
             {
                 Name = "observer1",
                 ExpectedPrice = 25            
             };
 
-            SellingObserver observer2 = new SellingObserver()
+            Observer observer2 = new SellingObserver()
             {
                 Name = "observer2",
                 ExpectedPrice = 40000
@@ -25,12 +25,12 @@ namespace net_laba5
             Observable observable2 = new Observable();
             observable2.Subscribe(observer2);
 
-            ExchangeRate exchangeRate1 = new ExchangeRate(observable1)
+            Exchange exchangeRate1 = new ExchangeRate(observable1)
             {
                 Name = "Dollar",
             };
 
-            Quotes quotes1 = new Quotes(observable2)
+            Exchange quotes1 = new Quotes(observable2)
             {
                 Name = "Quote1"
             };
