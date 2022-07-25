@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Stock_exchange;
+using Stock_exchange.Enums;
 using StockExchange.Interfaces;
 
 namespace StockExchange
@@ -9,15 +11,16 @@ namespace StockExchange
     {
         public override void MakeDecision(decimal price, string name)
         {
-            if (ExpectedPrice <= price)
+            Decision = new Decision()
             {
-                Decision = $"{Name} wants to sell {name} with price {decimal.Round(price, 2)}";
-            }
+                Price = price,
+                ExchangeName = name,
+                Operation = Operation.Sell
 
-            else
-            {
-                Decision = "No decision";
-            }
+            };
+
+            Decision.Status = ExpectedPrice <= price ? true : false;
+
         }
     }
 }

@@ -8,6 +8,7 @@ namespace net_laba5
     {
         static void Main()
         {
+
             Observer observer1 = new BuyingObserver()
             {
                 Name = "observer1",
@@ -35,15 +36,20 @@ namespace net_laba5
                 Name = "Quote1"
             };
 
-            while (true)
+            Console.WriteLine("Press Enter to update exchange rates \n");
+            Console.WriteLine("Press Escape to exit \n");
+
+            var key = ConsoleKey.Enter;
+
+            while (key == ConsoleKey.Enter)
             {
                 exchangeRate1.AnalyzeExchange();
-                Console.WriteLine(observer1.Decision);
-                Console.ReadKey();
+                Console.WriteLine($"{observer1.Name} : {observer1.Decision}");
 
                 quotes1.AnalyzeExchange();
-                Console.WriteLine(observer2.Decision);
-                Console.ReadKey();
+                Console.WriteLine($"{observer2.Name} : {observer2.Decision}");
+
+                key = Console.ReadKey().Key;
             }
         }
     }

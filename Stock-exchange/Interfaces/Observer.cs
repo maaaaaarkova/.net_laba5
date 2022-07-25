@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Stock_exchange;
 
 namespace StockExchange.Interfaces
 {
@@ -8,7 +9,7 @@ namespace StockExchange.Interfaces
     {
         public string Name { get; set; }
 
-        public string Decision { get; protected set; } = "No decision";
+        public Decision Decision { get; protected set; }
 
         public decimal ExpectedPrice { get; set; }
 
